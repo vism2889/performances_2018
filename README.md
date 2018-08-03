@@ -1,2 +1,2 @@
 # performances_2018
-code from live performances
+tidalcycles code from live performances in 2018
