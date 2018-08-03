@@ -1,3 +1,59 @@
+-- PGH BXC perfomance July 29 2018
+
+
+let pop11 a b p = stut' 11(a) (|*| speed b) p
+    pop7 a b p = stut' 7(a) (|*| speed b) p
+    grad = (within(0.75, 1.0))(slow 8 . (stut 16 0.75 0.5). (|=| speed 2.5))
+    gradd = (within(0.25, 0.50))(slow 8 . (stut 8 0.75 0.5). (|=| speed 0.8))
+
+let knut p = (slow 2 . stut "8 16" 0.75 0.5 . (|*| speed 2)) p
+    withinn a p= ((within(0.125,0.25)(stut a 0.75 0.5)) . (within(0.375,0.5)(stut a 0.75 0.5)) . (within(0.75,1.0)(stut a 0.75 0.5))) p
+
+bps (80/60)
+
+d1 $ slow 2 $ whenmod 16 10 (const $ every 3 (pop11 0.125 1.7)$ sound "atink(8,11)")$ sound "atink(5,11)"
+d1 $ silence
+
+d2 $ slow 2$ whenmod 16 10 (const $ sound "[feel:6(7,11),feel:5(4,11)]" # cut 2 )$ sound "[feel:6(4,7),feel:5(3,11)]" # cut 2 # speed ((scale (-4) 27 sine)*(slow 8 saw)) # gain 1.25
+
+d3 $ slow 2 $ fuk $ sound "[atrp:2([7 4 3]/7,11)]" # cut 2
+
+d4 $ slow 2$ jux (iter 4)$ every 6 (within (0.47, 0.74)(maven 0.125 2 0.4 )) $whenmod 32 16 (pop11 0.125 1.7) $ whenmod 16 10 (|=| speed 0.7)$ loopAt 4 $ chop 16 $ sound "research:11"
+
+d5 $ slow 2$whenmod 16 10 (const $ sound "rm*11" # speed ((scale (-4) 18 sine)*(slow 8 saw)))$ sound "rm*7" # speed ((scale (-4) 18 sine)*(slow 8 saw))
+
+d6 $slow 2$ every 3 (twist 0.47 0.74 22)$ whenmod 16 10 (const $ sound "~ ~ ~ ~ ~ cp ~ ~ ~ ~ ~") $ sound "~ ~ ~ cp ~ ~ ~"
+
+
+--
+
+
+bps (160/60)
+d1 $ fuk $ pop4 0.125 0.4$ sound "feelfx/3" # speed 0.1 # orbit 0
+d2 $ every 4 (slow 3)$ jux (fuk)$ sound "feelfx/1.5" # speed 0.1 # orbit 0
+
+d1 $ silence
+
+d1  $ slow 4 $ every 9 (slow 4)$ every 5 (twist 0.75 1.0 32)$ every 7 (0.25 ~>) $ every 3 (iter 4)$ jux (fuk )$whenmod 8 4 (slow 2)$ stack [
+  faux $ "<0 0.5 0.125>" <~ sound ("[glitch:2([5 3]/5,8), hh feel:1, feel:6([7 [5 3]]/3,8),~ feel:5]") # cut 2 # gain 1.25,
+  faux $ sound "[bass2:2([7 5]/5,8)?, atrp:1/2 ~, atrp:4([7 3]/5,8),hc hc hh ~]" # release 0.1 # cut 2 # speed 0.9,
+  whenmod 16 8 (|*| speed (choose[2,3,4,(-3),(-5)])) $ sound "feelfx/3" # speed 0.1 # gain 1.35
+  ] # orbit 0
+
+--
+d1 $ every 5 ((within(0.25, 0.75))(stut 4 0.85 0.5))$ every 7 (slow 2)$ every 3 (0.25 ~>)
+    $ sound "[[feel:6 hh feel:8 feel:5] [hh hbd:8 feel:6 feel:5] [hh feel:8 feel:5 glitch:2] [feel:6 ~ [trp:9] ~] feel:6*4 ~ [~ ~ ~ cp*2] [~ ~ feel:6? ~]]/4" # release 0.5 # gain 1.5
+
+d2 $ every 3 (fuk )$ sound "[[research:80(3,8)]/2,noiz:3(5,8)]" # speed "0.5" # gain 1.75 # cut 2
+
+d3 $ sound "atink:9([7 3]/5,8)" # release 0.8 # gain 1.15
+d3 $ silence
+
+d2 $ silence
+
+d4$ slow 2 $ realAF $ whenmod 16 7 (const $ every 3 (pop4 0.125 2.5)$ n (irand 8) # sound "amencutup" # release 0.2 # gain 1.5 # coarse 5)$ every 3 (pop4 0.125 1.5)$ iter 4 $ slow 2$ n (irand 16) # sound "noiz" # gain 1.5  # release 0.2
+
+
 bps (190/60)
 
 d5 $ whenmod 16 8 (slow 2) $ fuk $ every 7 (slow 2 . (within(0.75, 1.0)(stut 8 0.75 0.25)))

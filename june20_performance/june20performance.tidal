@@ -1,3 +1,5 @@
+--  PGH 3577 studios performance June 20th 2018
+
 
 let pop11 a b p = stut' 11(a) (|*| speed b) p
     pop7 a b p = stut' 7(a) (|*| speed b) p
