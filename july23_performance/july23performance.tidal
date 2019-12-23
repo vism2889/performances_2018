@@ -1,4 +1,4 @@
--- Akron Breakcore performance W/spednar July 23 2018 
+-- Akron Breakcore performance W/spednar July 23 2018
 
 
 
@@ -10,7 +10,7 @@ let pop11 a b p = stut' 11(a) (|*| speed b) p
 let knut p = (slow 2 . stut "8 16" 0.75 0.5 . (|*| speed 2)) p
     withinn a p= ((within(0.125,0.25)(stut a 0.75 0.5)) . (within(0.375,0.5)(stut a 0.75 0.5)) . (within(0.75,1.0)(stut a 0.75 0.5))) p
 
-bps (80/60)
+bps (160/60)
 
 d1 $ slow 2 $ whenmod 16 10 (const $ every 3 (pop11 0.125 1.7)$ sound "atink(8,11)")$ sound "atink(5,11)"
 d1 $ silence
